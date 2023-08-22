@@ -6,9 +6,6 @@ import { redirect } from 'next/navigation';
 export default function Dashboard() {
   const { data: session } = useSession({
     required: true,
-    onUnauthenticated() {
-      redirect('/');
-    },
   });
 
   console.log('session', session);

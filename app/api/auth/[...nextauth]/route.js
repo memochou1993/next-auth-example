@@ -2,14 +2,12 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 const handler = NextAuth({
-  secret: 'test',
   pages: {
     signIn: '/sign-in',
   },
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        console.log('credentials', credentials);
         const data = { token: 'token', email: 'test@example.com' };
         return data;
       },
