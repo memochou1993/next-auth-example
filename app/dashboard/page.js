@@ -1,20 +1,21 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 
 export default function Dashboard() {
-  const { data: session } = useSession({
-    required: true,
-  });
+  const { data: session } = useSession();
 
   console.log('session', session);
 
   return (
     <>
-      <div>
-        Dashboard
-      </div>
+      <button
+        type="button"
+        onClick={() => signOut()}
+      >
+        Sign Out
+      </button>
     </>
   );
 }

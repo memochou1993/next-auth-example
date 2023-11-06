@@ -7,9 +7,11 @@ const handler = NextAuth({
   },
   providers: [
     CredentialsProvider({
-      async authorize(credentials) {
-        const data = { token: 'token', email: 'test@example.com' };
-        return data;
+      async authorize({ email, password }) {
+        if (email === 'test@example.com' && password === 'password') {
+          return { token: 'token', email };
+        }
+        throw new Error('Invalid credentials');
       },
     }),
   ],

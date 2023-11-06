@@ -1,13 +1,14 @@
 'use client';
 
-import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react'
 
 export default function Home() {
+  const router = useRouter();
+  useEffect(() => {
+    router.push('/sign-in');
+  }, []);
   return (
-    <>
-      <div>
-        <button onClick={() => signIn()}>Sign In</button>
-      </div>
-    </>
+    <div />
   );
 }

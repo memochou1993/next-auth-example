@@ -2,6 +2,6 @@ export { default } from 'next-auth/middleware';
 
 export const config = {
   matcher: [
-    '/dashboard',
+    '/((?!api|sign-up|sign-in|forgot-password|sign-out|_next|.*\\..*|$).*)',
   ],
 };
